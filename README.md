@@ -1,4 +1,4 @@
 js-graph-lib
 ============
 
-Javascript Graph Library
+Javascript + HTML5 Graph Library
