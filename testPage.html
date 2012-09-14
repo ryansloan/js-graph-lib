@@ -1,0 +1,57 @@
+<html>
+<script src="js-graph-lib.js">
+</script>
+<script>	
+var testBC=null;
+var chart2=null;
+function init() {
+	document.onkeypress = processKeyPress;
+	debugWrite("initializing...");
+	testBC = new BarChart(document.getElementById("barchart"));
+	for (var i = 0; i < 5; i++) {
+		testBC.addPoint("point "+i, Math.abs(Math.random()*10));
+
+	}
+	testBC.redraw();
+	chart2= new BarChart(document.getElementById("barchartDOS"));
+	for (var i = 0; i < 15; i++) {
+		chart2.addPoint("data " + i, Math.abs(Math.random() * 10));
+
+	}
+	chart2.redraw();
+}	
+		function processKeyPress(e) {
+
+        if (e.keyCode == 100) { toggleDebug(); }
+        else if (e.keyCode == 97) { var tmpx = Math.random() * 20; var tmpy = Math.random()*100; debugWrite("adding random point [" + tmpx + "," + tmpy + "]"); testBC.addPoint(tmpx, tmpy); testBC.redraw(); }
+        else if (e.keyCode == 114) { var idx = Math.round(Math.random() * testBC.points.length); debugWrite("removing random point at index " + idx + ""); testBC.removePointByIndex(idx); testBC.redraw(); }
+        else {
+            debugWrite(e.keyCode + e.key);
+        }
+    }
+	function debugWrite(msg) {
+    document.getElementById("debug").innerHTML += msg + "\r\n";
+}
+
+function toggleDebug() {
+    var dw = document.getElementById("debug");
+    if (dw.style.visibility === "hidden") {
+        dw.style.visibility="visible";
+    } else {
+        dw.style.visibility="hidden";
+
+    }
+}
+</script>
+
+<body onload="init()">
+ <svg id="barchart" width="600" height="300" style="background:#ffffff"></svg>
+        <svg id="barchartDOS" width="600" height="300" style="background:#ffffff"></svg>
+    <br />
+    <div id="test">
+    </div><br />
+    <textarea id="debug" rows="5" cols="100" style="overflow: scroll; visibility: hidden; "></textarea>
+	
+</body>
+
+</html>
