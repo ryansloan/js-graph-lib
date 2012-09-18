@@ -74,8 +74,8 @@ function BarChart(el) {
                 currentBarEl = document.createElementNS("http://www.w3.org/2000/svg", "rect");
                 currentBarEl.setAttributeNS(null, "fill", colors[i % colors.length]);
                 currentBarEl.setAttributeNS(null, "x", paddingBetweenBars * (i + 1) + i * barWidth+this.widthOfYLabels);
-                currentBarEl.setAttributeNS(null, "y", Math.floor((this.maxY - this.points[i].y) * multiplier)); //why - 1? to account for zero!(we want to show something)
-                currentBarEl.setAttributeNS(null, "height", Math.floor(this.points[i].y * multiplier) + 1);//why + 1? to account for zero! (we want to show something)
+                currentBarEl.setAttributeNS(null, "y", Math.ceil((this.maxY - this.points[i].y) * multiplier)-1); //subtract 1 so we can draw above the axis and draw a 1px rect for zero.
+                currentBarEl.setAttributeNS(null, "height", Math.floor(this.points[i].y * multiplier) + 1);//add 1 to account for zero! this ensures we show something
                 currentBarEl.setAttributeNS(null, "width", barWidth);
                 currentBarEl.addEventListener("click", showPointDetails); //show point detial window a graph element is clicked.
                 currentBarEl.setAttributeNS(null, "id", this.target.id + "_" + i);
