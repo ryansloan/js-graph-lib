@@ -112,7 +112,7 @@ function BarChart(el) {
             currLabel.textContent = this.maxY;
             this.target.appendChild(currLabel);
             currLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            currLabel.setAttributeNS(null, "x", this.widthOfYLabels - 1)
+            currLabel.setAttributeNS(null, "x", this.widthOfYLabels - 1);
             currLabel.setAttributeNS(null, "y", h-this.heightOfXLabels);
             currLabel.setAttributeNS(null, "fill", "#161616");
             currLabel.setAttributeNS(null, "font-size", "9pt");
@@ -137,13 +137,14 @@ function BarChart(el) {
             currAxis.setAttributeNS(null, "x2", w);
             currAxis.setAttributeNS(null, "y1", h-50);
             currAxis.setAttributeNS(null, "y2", h - 50);
+			currAxis.setAttributeNS(null, "text-anchor","center");
             currAxis.setAttributeNS(null, "stroke", "#262626");
             currAxis.setAttributeNS(null, "stroke-width", "1");
             this.target.appendChild(currAxis);
 				
 			//X Axis Title
 			currLabel=document.createElementNS("http://www.w3.org/2000/svg","text");
-			currLabel.setAttributeNS(null, "x", this.widthOfYLabels+(this.target.width.baseVal.value/2));
+			currLabel.setAttributeNS(null, "x", (w-this.widthOfYLabels)/2);
 			currLabel.setAttributeNS(null, "y", h-Math.floor(this.heightOfXLabels/3));
 			currLabel.setAttributeNS(null, "fill", "#161616");
 			currLabel.setAttributeNS(null,"font-size", "9pt");
