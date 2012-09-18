@@ -8,12 +8,15 @@ function init() {
 	document.onkeypress = processKeyPress;
 	debugWrite("initializing...");
 	testBC = new BarChart(document.getElementById("barchart"));
-	for (var i = 0; i < 5; i++) {
-		testBC.addPoint("point "+i, Math.abs(Math.random()*10));
-
-	}
+	testBC.xAxisTitle="Traveler";
+	testBC.yAxisTitle="Distance";
+	testBC.addPoint("Ryan", 1800);
+	testBC.addPoint("Katie", 700);
+	testBC.addPoint("Randall", 1500);
+	testBC.addPoint("Tyler",0);
 	testBC.redraw();
 	chart2= new BarChart(document.getElementById("barchartDOS"));
+	chart2.xAxisTitle="Other points";
 	for (var i = 0; i < 15; i++) {
 		chart2.addPoint("data " + i, Math.abs(Math.random() * 10));
 
@@ -45,7 +48,7 @@ function toggleDebug() {
 </script>
 
 <body onload="init()">
- <svg id="barchart" width="600" height="300" style="background:#ffffff"></svg>
+<svg id="barchart" width="600" height="300" style="background:#ffffff"></svg>
         <svg id="barchartDOS" width="600" height="300" style="background:#ffffff"></svg>
     <br />
     <div id="test">
