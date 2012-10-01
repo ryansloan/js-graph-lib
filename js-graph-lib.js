@@ -104,7 +104,7 @@ function BarChart(el) {
             currLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
 			
             //draw y axis labels, leaving room between them and the axis itself
-            currLabel.setAttributeNS(null, "x", this.widthOfYLabels - 1)
+            currLabel.setAttributeNS(null, "x", this.widthOfYLabels - 1);
             currLabel.setAttributeNS(null, "y", 10);
             currLabel.setAttributeNS(null, "fill", "#161616");	
             currLabel.setAttributeNS(null, "font-size", "9pt");
@@ -201,7 +201,7 @@ function showPointDetails(e) {
 	windowEl.style.border = "1px solid #161616";
 	windowContentsEl.innerHTML = "<strong>X</strong>:" + currentPoint.x+"<br />";
     windowContentsEl.innerHTML += "<strong>Y</strong>:" + currentPoint.y;
-	windowContentsEl.style.marginRight="20px";
+	windowContentsEl.style.marginRight="20px"; //so we don't run right into the edge of the window
     var closeButton = document.createElement("span");
     closeButton.style.fontSize = "18";
     closeButton.innerHTML = "x";
